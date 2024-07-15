@@ -1,0 +1,100 @@
+import java.util.HashMap;
+import java.util.InputMismatchException;
+import java.util.Map;
+import java.util.Scanner;
+
+public class StudentScoreApp {
+
+    // Define the subjects
+    private static final String[] SUBJECTS = {"Mathematics", "Science", "English"};
+
+    // Method to get a valid score input
+    private static double getValidScore(String studentName, String subject, Scanner scanner) {
+        while (true) {
+            try {
+                System.out.printf("Enter the score for %s in %s: ", studentName, subject);
+                double score = scanner.nextDouble();
+                if (score >= 0 && score <= 100) {
+                    return score;
+                } else {
+                    System.out.println("Score must be between 0 and 100. Please enter again.");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input. Please enter a numeric value.");
+                scanner.next();  // Clear the invalid input
+            }
+        }
+    }
+
+    // Method to display the class summary
+    private static void displaySummary(Map<String, Map<String, Double>> students) {
+        System.out.println("\nClass Summary");
+        System.out.println("=" * 50);
+        double totalScore = 0;
+        int totalScores = 0;
+
+        for (Map.Entry<String, Map<String, Double>> entry : students.entrySet()) {
+            String studentName = entry.getKey();
+            Map<String, Double> scores = entry.getValue();
+            System.out.println("\nStudent: " + studentName);
+            double studentTotalScore = 0;
+
+            for (String subject : SUBJECTS) {
+                double score = scores.get(subject);
+                System.out.printf("%s: %.2f\n", subject, score);
+                studentTotalScore += score;
+            }
+            double averageScore = studentTotalScore / SUBJECTS.length;
+            System.out.printf("Average Score: %.2f\n", averageScore);
+            totalScore += studentTotalScore;
+            totalScores += SUBJECTS.length;
+        }
+
+        double classAverageScore = totalScore / totalScores;
+        System.out.printf("\nOverall Class Performance\n");
+        System.out.println("=" * 50);
+        System.out.printf("Average Class Score: %.2f\n", classAverageScore);
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Student Score Management System");
+
+        // Get the number of students
+        int numStudents;
+        while (true) {
+            try {
+                System.out.print("Enter the number of students: ");
+                numStudents = scanner.nextInt();
+                if (numStudents > 0) {
+                    break;
+                } else {
+                    System.out.println("Number of students must be a positive integer. Please enter again.");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input. Please enter a valid number of students.");
+                scanner.next();  // Clear the invalid input
+            }
+        }
+
+        // Create a map to store student names and their scores
+        Map<String, Map<String, Double>> students = new HashMap<>();
+
+        for (int i = 0; i < numStudents; i++) {
+            System.out.print("\nEnter the name of the student: ");
+            String studentName = scanner.next();
+            Map<String, Double> scores = new HashMap<>();
+            for (String subject : SUBJECTS) {
+                double score = getValidScore(studentName, subject, scanner);
+                scores.put(subject, score);
+            }
+            students.put(studentName, scores);
+        }
+
+        // Display the class summary
+        displaySummary(students);
+
+        scanner.close();
+    }
+}
