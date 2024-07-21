@@ -1,0 +1,24 @@
+def vowels_and_consonant(input_string):
+
+vowels = "aeiouAEIOU"
+
+vowels = 0
+consonant = 0
+
+	for char in input_string:
+		if char.isalpha():
+
+			if char in vowels:
+				vowels += 1
+			else:
+				consonant += 1
+	return vowel, consonant
+
+if name == " main":
+
+	user_input = input("Enter a string: ")
+	
+	vowels, consonants = vowels_and_consonant(input_string)
+
+	print(f"The input string contains {vowels} vowels and {consonants} consonants.")
+

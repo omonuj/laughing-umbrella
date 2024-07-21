@@ -20,5 +20,3 @@ print(f"average of numbers are:", {average})
 print(f"product of numbers are: ", {product})
 print(f"minimum number is: ", {minimum})
 print(f"maximum number is: ", {maximum})
-
-#list = [4, 4, 6, 7, 7,]
