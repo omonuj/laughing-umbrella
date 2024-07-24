@@ -1,0 +1,5 @@
+def length_of_argument(arg):
+
+	return len(arg)
+
+print(length_of_argument("Hello World!")
