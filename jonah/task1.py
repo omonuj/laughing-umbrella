@@ -1,5 +1,5 @@
-#This proram reads inputs from user as form of lenth and radius, and it 
-# computes them the erea and volume of a cylinder.
+#This proram reads inputs from a user as form of lenth and radius, and it 
+# computes the area and volume of a cylinder.
 
 	#reads input from user for length and radius
 radius = int(input("Enter radius: "))
