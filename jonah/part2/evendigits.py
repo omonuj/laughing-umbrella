@@ -3,9 +3,9 @@
 #defines method
 even_digit_numbers = []
 
-for i in range(1000, 3001):
+for number in range(1000, 3001):
     # Convert the number to a string
-    num_str = str(i)
+    num_str = str(number)
     # Assume all digits are even initially
     all_even = True
     
