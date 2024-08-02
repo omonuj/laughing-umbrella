@@ -3,7 +3,10 @@
 #defines method
 even_digit_numbers = []
 
+<<<<<<< HEAD
 #repeats statements multiple times
+=======
+>>>>>>> e1428543175ee8dfd0f056f3d7ad9120d2bb6f1b
 for number in range(1000, 3001):
     # Convert the number to a string
     num_str = str(number)
