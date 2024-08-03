@@ -1,25 +1,25 @@
 def main():
     while True:
         try:
-            n = int(input("Enter an integer from 1 to 13: "))
-            if 1 <= n <= 13:
+            user = int(input("Enter an integer from 1 to 13: "))
+            if 1 <= user <= 13:
                 break
             else:
                 print("Please enter a number between 1 and 13.")
         except ValueError:
             print("Invalid input. Please enter an integer.")
     
-    for i in range(1, n + 1):
+    for index in range(1, user + 1):
        
-        print(" " * (n - i), end="")
+        print(" " * (user - index), end="")
         
 
-        for j in range(i, 0, -1):
-            print(j, end="")
+        for column in range(index, 0, -1):
+            print(column, end="")
         
        
-        for j in range(2, i + 1):
-            print(j, end="")
+        for column in range(2, index + 1):
+            print(column, end="")
         
         print()
 
