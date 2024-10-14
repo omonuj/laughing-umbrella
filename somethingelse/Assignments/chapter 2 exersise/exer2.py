@@ -1,0 +1,1 @@
+rating = input("Enter an integer ratingbetween 1 and 10")

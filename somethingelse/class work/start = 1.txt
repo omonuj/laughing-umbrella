@@ -1,0 +1,16 @@
+start = 1
+end = 20
+
+print("    ", end="") 
+for base in range(start, end + 1):
+    print(f"{base:4}", end="")
+
+print() 
+
+for base in range(start, end + 1):
+    print(f"{base:4}", end="")
+
+    for column in range(start, end + 1):
+        print(f"{base * column:4}", end="")
+    
+    print()
